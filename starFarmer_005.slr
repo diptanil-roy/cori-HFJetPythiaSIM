@@ -28,7 +28,7 @@ export SKEW=1000  # (sec) stagger first wave of task farmer tasks
 export THREADS=50 # how many task per node , can be less than '-c'value but not more
 export NUM_EVE=1000 # warn, may be changed in star-.csh task
 
-myTaskList=starTask_005.list
+myTaskList=starTask_001.list
 myTaskCSH=r4sTask_embed.csh
 codeDir=`pwd`
 monQA=`pwd`/mon.farmer-$SLURM_JOB_ID  
