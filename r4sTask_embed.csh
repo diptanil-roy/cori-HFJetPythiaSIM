@@ -32,7 +32,8 @@ endif
     # those variables could have been set in the SLURM job script
     #  and need to be overwritten when templeate is processed
     set STAR_VER = SL16d_embed
-    set PATH_DAQ = /global/homes/s/staremb/zhux/simu/git_jason
+    # set PATH_DAQ = /global/homes/s/staremb/zhux/simu/git_jason
+    set PATH_DAQ = /global/homes/d/droy1/Pythia
         
     echo  starting new r4s PATH_DAQ=$PATH_DAQ, coreN=$coreN, execName=$EXEC_NAME, NUM_EVE=$NUM_EVE, fSet=$fSet, workerName=`hostname -f`', startDate='`date`
     echo 'pwd='`pwd` ' WRK_DIR='${WRK_DIR}  
@@ -248,6 +249,13 @@ endif
     echo RECONSTRUCTION_START_TIME = `date` > rc_${runnumber}_${chunk}.log
     root4star -q -b Input/runBfc.C\(${NUM_EVE},\"${fzdin}\"\)             >> rc_${runnumber}_${chunk}.log
     echo RECONSTRUCTION_END_TIME = `date` >> rc_${runnumber}_${chunk}.log
+
+    which starsim 
+
+    starver SL21d
+
+    set mudstfile=`ls *.MuDst.root`
+    root4star -l -b -q genDst.C\(-1,\"picoDst,PicoVtxMode:PicoVtxVpdOrDefault,PicoCovMtxMode:PicoCovMtxWrite\",\"${mudstfile}\"\) >> stats_${runnumber}_${chunk}.log
 
     set   EMBEDDING_END_TIME = `date`
 
