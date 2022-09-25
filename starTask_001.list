@@ -1,0 +1,1 @@
+shifter --module=cvmfs /bin/tcsh ${WRK_DIR}/r4sTask_embed.csh cori.simulation.y2014x.pythia8.HFjets.input.list.001 1 1 >& ${WRK_DIR}/logs/starTask_001.1.taskLog
